@@ -2,7 +2,7 @@
 
 A simple client/server web app to generate secure and easy-to-type passwords.
 
-## Why this little app?
+## Why this little app? 
 
 I was a long-time user of the wonderful SecureSafe which generates passwords that are easy to type and secure. Then I switched to the Apple password app, which has great advantages but generates GODAWFUL passwords.
 
