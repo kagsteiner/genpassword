@@ -1,0 +1,12 @@
+{
+  "name": "secure-password-generator",
+  "version": "1.0.0",
+  "description": "A Node.js app to generate secure and easy-to-type passwords",
+  "main": "genpassword.js",
+  "scripts": {
+    "start": "node genpassword.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "keywords": []
+}
