@@ -4,6 +4,7 @@ const path = require('path');
 const { generatePassword } = require('./genpassword');
 
 const app = express();
+app.set('trust proxy', 1); // Trust first proxy (Hostinger/reverse proxy)
 const port = process.env.PORT || 3004;
 
 const apiLimiter = rateLimit({
