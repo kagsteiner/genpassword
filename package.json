@@ -1,10 +1,15 @@
 {
   "name": "secure-password-generator",
   "version": "1.0.0",
-  "description": "A Node.js app to generate secure and easy-to-type passwords",
-  "main": "genpassword.js",
+  "description": "A client/server app for generating readable secure passwords",
+  "main": "server.js",
   "scripts": {
-    "start": "node genpassword.js"
+    "start": "node server.js",
+    "cli": "node genpassword.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0"
   },
   "author": "",
   "license": "MIT",

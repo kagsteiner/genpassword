@@ -11,6 +11,12 @@ const generateBtn = document.getElementById('generate-btn');
 let currentMainPassword = '';
 let alternativePasswords = [];
 
+function getApiUrl(pathWithQuery) {
+  const isGenpasswordSubpath = window.location.pathname.startsWith('/genpassword');
+  const basePath = isGenpasswordSubpath ? '/genpassword' : '';
+  return `${basePath}${pathWithQuery}`;
+}
+
 function renderPasswords() {
   mainPasswordEl.textContent = currentMainPassword || 'No password available';
   copyBtn.disabled = !currentMainPassword;
@@ -57,7 +63,7 @@ async function generatePasswords() {
   copyFeedback.textContent = '';
 
   try {
-    const response = await fetch(`/api/passwords?${params.toString()}`);
+    const response = await fetch(getApiUrl(`/api/passwords?${params.toString()}`));
 
     if (!response.ok) {
       throw new Error('Could not generate passwords right now.');

@@ -1,6 +1,6 @@
 # Secure Password Generator
 
-A Node.js tool to generate secure and easy-to-type passwords.
+A simple client/server web app to generate secure and easy-to-type passwords.
 
 ## Why this little app?
 
@@ -10,67 +10,71 @@ Thus this app. Generate SecureSafe-style passwords.
 
 ## Features
 
-- Generates passwords with alternating consonants and vowels for readability
-- Includes random digits and special characters for security
-- Customizable password length
-- Optional uppercase letter positioning
+- Simple backend endpoint that takes three parameters and returns five suggestions
+- Clean web UI with one highlighted main password and four alternatives below
+- Click an alternative to promote it to main password
+- Copy the main password to clipboard
+- Endpoint rate limiting to reduce brute-force abuse
 
 ## Installation
 
 1. Clone this repository or download the files
-2. Install Node.js if you haven't already
-3. Run `npm install` to install dependencies
+2. Install Node.js if you have not already
+3. Run `npm install`
 
-## Usage
-
-### As a command-line tool:
+## Run the app
 
 ```bash
-node genpassword.js [length1] [length2] [uppercasePosition]
+npm start
 ```
 
-**Concrete Example:**
+Then open `http://localhost:3004`.
+
+## API
+
+### `GET /api/passwords`
+
+Query parameters:
+
+- `length1` - Length of the first readable part (2-20, default `6`)
+- `length2` - Length of the second readable part (2-20, default `4`)
+- `uppercasePosition` - `first`, `last`, or omitted
+
+Example request:
+
 ```bash
-$ node genpassword.js 6 4 first
-Generated Password: Befamo37kuda@
+curl "http://localhost:3004/api/passwords?length1=6&length2=4&uppercasePosition=first"
 ```
 
-This command generates a password with:
-- 6 characters for the first readable part: "Befamo"
-- 2 random digits: "37"
-- 4 characters for the second readable part: "kuda"
-- 1 special character: "@"
-- First letter capitalized: "B"
+Example response:
 
-- `length1`: Length of the first readable part (default: 6)
-- `length2`: Length of the second readable part (default: 4)
-- `uppercasePosition`: Position of uppercase letter ('first' or 'last', optional)
+```json
+{
+  "params": {
+    "length1": 6,
+    "length2": 4,
+    "uppercasePosition": "first"
+  },
+  "suggestions": [
+    "Befamo37kuda@",
+    "Lidora21mepi#",
+    "Kuvati56sano!",
+    "Moqibe40tari$",
+    "Wugalo89feni&"
+  ]
+}
+```
 
-Examples:
+## CLI usage (still available)
+
 ```bash
-node genpassword.js          # Default: 6-4 pattern
-node genpassword.js 8 5       # Custom lengths: 8-5 pattern
-node genpassword.js 6 4 first # Uppercase first letter
-node genpassword.js 6 4 last  # Uppercase last letter
+npm run cli -- 6 4 first
 ```
 
-### As a module in your Node.js application:
-
-```javascript
-const { generatePassword } = require('./genpassword');
-
-// Generate a password with default settings
-const password = generatePassword();
-console.log(password);
-
-// Generate with custom settings
-const customPassword = generatePassword(8, 5, 'first');
-console.log(customPassword);
-```
-
-## Password Structure
+## Password structure
 
 The generated password follows this pattern:
+
 - Readable string (alternating consonants and vowels)
 - Two random digits
 - Another readable string

@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1f2937;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  width: min(780px, 100%);
+  background: #ffffff;
+  border: 1px solid #e4ecf5;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(17, 40, 74, 0.08);
+  padding: 1.5rem;
+}
+
+.header h1 {
+  margin: 0;
+  color: #0f2d52;
+}
+
+.header p {
+  margin-top: 0.5rem;
+  color: #4b627d;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  color: #2e4563;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  border-radius: 10px;
+  border: 1px solid #cfe0f2;
+  padding: 0.7rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+button {
+  cursor: pointer;
+  background: #0f62fe;
+  color: #fff;
+  border: none;
+  transition: transform 0.08s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 98, 254, 0.24);
+}
+
+button:disabled {
+  background: #9bb8ea;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.result {
+  margin-top: 1.8rem;
+}
+
+.result h2,
+h3 {
+  color: #163a62;
+}
+
+.main-password-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 2px solid #d7e8ff;
+  background: linear-gradient(135deg, #f7fbff 0%, #edf5ff 100%);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.main-password {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  color: #102a45;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.feedback {
+  min-height: 1.25rem;
+  margin: 0.6rem 0 0;
+  color: #2f5278;
+}
+
+.alternatives {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.password-option {
+  border: 1px solid #d4e4f8;
+  background: #f9fcff;
+  color: #1f3a58;
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+}
+
+.password-option:hover {
+  background: #eef5ff;
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Suggestion Generator</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <main class="page">
+    <section class="card">
+      <header class="header">
+        <h1>Readable Password Generator</h1>
+        <p>Generate secure, type-friendly passwords instantly.</p>
+      </header>
+
+      <form id="password-form" class="controls">
+        <label>
+          First readable length
+          <input id="length1" name="length1" type="number" min="2" max="20" value="6" />
+        </label>
+
+        <label>
+          Second readable length
+          <input id="length2" name="length2" type="number" min="2" max="20" value="4" />
+        </label>
+
+        <label>
+          Uppercase position
+          <select id="uppercasePosition" name="uppercasePosition">
+            <option value="">None</option>
+            <option value="first">First letter</option>
+            <option value="last">Last letter</option>
+          </select>
+        </label>
+
+        <button type="submit" id="generate-btn">Generate 5 suggestions</button>
+      </form>
+
+      <section class="result">
+        <h2>Main password</h2>
+        <div class="main-password-box">
+          <p id="main-password" class="main-password">Click generate to start</p>
+          <button id="copy-btn" type="button" disabled>Copy</button>
+        </div>
+        <p id="copy-feedback" class="feedback" aria-live="polite"></p>
+      </section>
+
+      <section>
+        <h3>Other suggestions (click to promote)</h3>
+        <div id="alternatives" class="alternatives"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
